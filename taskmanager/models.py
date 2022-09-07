@@ -5,7 +5,8 @@ class Category(db.Model):
     # schema for category model
     id = db.Column(db.Integer, primary_key=True)
     category_name = db.Column(db.String(25), unique=True, nullable=False) #max 25 char and required
-    tasks = db.relationship("Task", backref="category", cascade="all, delete", lazy=True) #links
+    tasks = db.relationship("Task", backref="category", cascade="all, delete", lazy=True) 
+    #links so that if a category is deleted, it will delete all tasks with that category
 
     def __repr__(self):
         # __repr__ to represent itself(class object) as a string
